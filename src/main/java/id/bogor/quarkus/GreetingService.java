@@ -5,7 +5,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 
-@Path("/greeting")
+@Path("/greetings")
 @RegisterRestClient(configKey="greeting-svc")
 public interface GreetingService {
 

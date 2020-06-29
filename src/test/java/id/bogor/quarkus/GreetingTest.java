@@ -12,7 +12,7 @@ public class GreetingTest {
     @Test
     public void testHelloEndpoint() {
         given()
-          .when().get("/greeting")
+          .when().get("/greetings")
           .then()
              .statusCode(200);
     }

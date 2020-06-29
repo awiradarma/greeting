@@ -13,7 +13,7 @@ import javax.inject.Inject;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 
-@Path("/greeting")
+@Path("/greetings")
 public class Greeting {
 
     @ConfigProperty(name = "greeting.message", defaultValue="hello")
