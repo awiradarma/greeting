@@ -1,10 +1,35 @@
+buildscript {
+    repositories {
+        jcenter()
+        mavenLocal()
+    }
+
+    dependencies {
+        classpath 'com.google.cloud.tools:appengine-gradle-plugin:2.2.0'
+    }
+}
+
 plugins {
     id 'java'
     id 'io.quarkus'
 }
 
+apply plugin: "com.google.cloud.tools.appengine-appyaml"
+
+appengine {
+    stage.artifact = "${buildDir}/greeting-1.0-SNAPSHOT-runner.jar"
+    deploy {
+        stopPreviousVersion = true
+        promote = true
+        projectId = System.getenv('GOOGLE_CLOUD_PROJECT')
+        version = '1'
+    }
+}
+
+
 repositories {
      mavenLocal()
+     jcenter()
      mavenCentral()
 }
 
@@ -21,6 +46,7 @@ dependencies {
     testImplementation 'io.quarkus:quarkus-junit5'
     testImplementation 'io.rest-assured:rest-assured'
 }
+
 
 group 'id.bogor.quarkus'
 version '1.0-SNAPSHOT'
